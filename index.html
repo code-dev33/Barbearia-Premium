@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>BARBER.CLUB – A Melhor Barbearia</title>
+<meta name="description" content="Barbearia premium: corte, barba, hidratação e selagem com agendamento rápido pelo WhatsApp.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&display=swap">
+<style>
+:root{
+  --bg:#07070a;--bg2:#0e0e13;--card:#12121a;--line:#2a2a33;--text:#f2efe9;--muted:#9b98a0;
+  --mint:#dcffd9;--or:#ff5a1f;--or2:#ff8a3d;
+  --head:"Barlow Condensed","Arial Narrow",Impact,sans-serif;--body:"Barlow",system-ui,sans-serif;
+  color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{background:var(--bg);color:var(--text);font-family:var(--body);line-height:1.55;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1120px;margin:auto;padding:0 20px}
+h1,h2,h3,.logo{font-family:var(--head);text-transform:uppercase;line-height:.95}
+.pill{display:inline-block;border-radius:10px;padding:11px 20px;font:700 .9rem var(--head);letter-spacing:.06em;text-transform:uppercase;cursor:pointer;border:1px solid var(--line);color:var(--text);background:#14141b;transition:.25s}
+.pill:hover{transform:translateY(-2px);border-color:var(--or)}
+.or{background:linear-gradient(180deg,var(--or2),var(--or));border-color:#ff9a62;color:#fff;box-shadow:0 6px 24px #ff5a1f55}
+/* nav */
+header{position:fixed;top:0;left:0;right:0;z-index:20;background:#07070acc;backdrop-filter:blur(10px);border-bottom:1px solid #ffffff10;padding-top:env(safe-area-inset-top,0px)}
+nav{height:64px;display:flex;align-items:center;gap:26px}
+.logo{font-size:1.5rem;font-weight:800;letter-spacing:.02em}
+.logo i{color:var(--or);font-style:normal}
+nav .links{display:flex;gap:22px;font-size:.88rem;font-weight:500}
+nav .links a:hover{color:var(--or2)}
+nav .right{margin-left:auto;display:flex;gap:10px}
+nav .pill{padding:8px 14px;font-size:.78rem}
+@media(max-width:760px){nav .links{display:none}}
+/* hero */
+.hero{min-height:100svh;position:relative;display:flex;align-items:center;padding:110px 0 60px;overflow:hidden;
+  background:radial-gradient(60% 55% at 85% 55%,#a8220f99,transparent 70%),radial-gradient(40% 40% at 90% 40%,#ff5a1f33,transparent 70%),var(--bg)}
+.ghost{position:absolute;top:60px;left:50%;transform:translateX(-50%);font:800 clamp(9rem,32vw,26rem)/1 var(--head);color:transparent;-webkit-text-stroke:2px #ffffff1c;letter-spacing:.03em;pointer-events:none;white-space:nowrap}
+.line{position:absolute;left:-10%;width:130%;height:2px;background:linear-gradient(90deg,transparent,var(--or) 30%,var(--or2) 70%,transparent);transform:rotate(-12deg);filter:drop-shadow(0 0 6px var(--or));opacity:.85}
+.hero .wrap{position:relative}
+.hero h1{font-size:clamp(3rem,10vw,6.4rem);font-weight:800;margin-bottom:22px}
+.hero h1 span{display:block;color:var(--mint)}
+.hero h1 em{font-style:normal;background:linear-gradient(90deg,var(--or),var(--or2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{max-width:470px;color:#d3d0d6;margin-bottom:26px;font-size:.98rem}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:30px}
+/* barra de agendamento */
+#bar{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr auto;gap:10px;padding:10px;background:#16161dcc;border:1px solid var(--line);border-radius:18px;max-width:820px;backdrop-filter:blur(6px)}
+#bar input,#bar select{width:100%;background:#0c0c11;border:1px solid var(--line);border-radius:10px;color:var(--text);padding:12px;font:500 .85rem var(--body)}
+#bar input:focus,#bar select:focus{outline:2px solid var(--or)}
+#bar .err{border-color:#ff5d5d}
+#bar button{padding:12px 22px}
+.recent{margin-top:14px;font-size:.82rem;color:var(--muted)}
+.recent a,.recent button{background:none;border:0;color:var(--text);text-decoration:underline;cursor:pointer;font:inherit}
+#msg{margin-top:8px;font-size:.88rem;min-height:1.3em}
+@media(max-width:820px){#bar{grid-template-columns:1fr 1fr}#bar input{grid-column:span 2}#bar button{grid-column:span 2}}
+/* seções */
+section{padding:90px 0;position:relative}
+.tag{color:var(--or);font:700 .85rem var(--head);letter-spacing:.2em;text-transform:uppercase}
+.sec h2{font-size:clamp(2.2rem,6vw,3.8rem);font-weight:800;margin:6px 0 40px}
+.sec h2 em{font-style:normal;color:var(--or)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.card{background:linear-gradient(180deg,var(--card),#0d0d13);border:1px solid var(--line);border-radius:18px;padding:26px;transition:.3s;position:relative;overflow:hidden}
+.card:hover{transform:translateY(-6px);border-color:var(--or);box-shadow:0 14px 40px #ff5a1f22}
+.card .n{font:800 3.4rem var(--head);color:transparent;-webkit-text-stroke:1px #ffffff30}
+.card h3{font-size:1.7rem;margin:6px 0 8px}
+.card p{color:var(--muted);font-size:.9rem;margin-bottom:16px}
+.price{font:700 1.3rem var(--head);color:var(--or2)}
+.av{width:84px;height:84px;border-radius:50%;display:grid;place-items:center;font:800 2rem var(--head);background:radial-gradient(circle at 30% 30%,var(--or2),#7a1d0c);margin-bottom:16px}
+#equipe{background:var(--bg2)}
+.steps{counter-reset:s}
+.steps .card::before{counter-increment:s;content:"0" counter(s);font:800 3rem var(--head);color:var(--or)}
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.contact ul{list-style:none}
+.contact li{padding:14px 0;border-bottom:1px solid var(--line);color:var(--muted)}
+.contact b{color:var(--text);display:block;font:700 1.1rem var(--head);letter-spacing:.06em;text-transform:uppercase}
+.map{min-height:240px;border-radius:18px;border:1px solid var(--line);display:grid;place-items:center;background:repeating-linear-gradient(45deg,#101018,#101018 12px,#0c0c12 12px,#0c0c12 24px)}
+@media(max-width:760px){.contact{grid-template-columns:1fr}}
+.big{text-align:center;background:radial-gradient(50% 80% at 50% 100%,#a8220f77,transparent)}
+.big h2{font-size:clamp(2.6rem,8vw,5.5rem);font-weight:800;margin-bottom:26px}
+footer{border-top:1px solid var(--line);padding:24px 20px calc(24px + env(safe-area-inset-bottom,0px));text-align:center;color:var(--muted);font-size:.8rem}
+.wa{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));width:54px;height:54px;border-radius:50%;background:#25d366;display:grid;place-items:center;font-size:1.5rem;color:#fff;z-index:30;box-shadow:0 6px 18px #0008}
+.fade{opacity:0;transform:translateY(26px);transition:.8s}
+.fade.show{opacity:1;transform:none}
+</style>
+</head>
+<body>
+<header><div class="wrap"><nav>
+  <a class="logo" href="#home">BARBER<i>.</i>CLUB</a>
+  <div class="links"><a href="#servicos">Serviços</a><a href="#equipe">Equipe</a><a href="#como">Como funciona</a><a href="#contato">Contato</a></div>
+  <div class="right"><a class="pill or" href="https://wa.me/5500900000000" target="_blank" rel="noopener">WhatsApp</a><a class="pill" href="#home">Agendar</a></div>
+</nav></div></header>
+
+<main>
+<section class="hero" id="home" style="padding-top:110px">
+  <div class="ghost">BARBER</div>
+  <div class="line" style="top:62%"></div><div class="line" style="top:67%;opacity:.4"></div>
+  <div class="wrap">
+    <h1><span>A melhor</span><span>barbearia</span><em>de outro nível.</em></h1>
+    <p>Corte, barba e estilo com barbeiros experientes, produtos premium e atendimento direto pelo WhatsApp. Sem cadastro para agendar.</p>
+    <div class="cta"><a class="pill or" href="#servicos">Escolher serviço</a><a class="pill" href="#contato">Agendar visita</a></div>
+    <form id="bar" novalidate>
+      <input name="nome" placeholder="Seu nome" required>
+      <select name="servico" required><option value="">Todos os serviços</option><option>Corte de Cabelo</option><option>Barba</option><option>Hidratação</option><option>Selagem</option></select>
+      <select name="barbeiro" required><option value="">Qualquer barbeiro</option><option>Rafael</option><option>Lucas</option><option>Antônio</option></select>
+      <input name="hora" type="datetime-local" required aria-label="Data e horário">
+      <button class="pill or" type="submit">Agendar</button>
+    </form>
+    <p id="msg" role="status"></p>
+    <p class="recent" id="recent">Último agendamento: nenhum ainda</p>
+  </div>
+</section>
+
+<section class="sec" id="servicos"><div class="wrap">
+  <div class="tag fade">Serviços</div><h2 class="fade">O que fazemos <em>melhor.</em></h2>
+  <div class="grid">
+    <div class="card fade"><div class="n">01</div><h3>Corte de Cabelo</h3><p>Degradê, social ou clássico, com máquina e tesoura de precisão.</p><div class="price">A partir de R$ 50</div></div>
+    <div class="card fade"><div class="n">02</div><h3>Barba</h3><p>Modelagem na navalha com toalha quente e espuma tradicional.</p><div class="price">A partir de R$ 40</div></div>
+    <div class="card fade"><div class="n">03</div><h3>Hidratação</h3><p>Tratamento para cabelo e barba: brilho, maciez e controle.</p><div class="price">A partir de R$ 60</div></div>
+    <div class="card fade"><div class="n">04</div><h3>Selagem</h3><p>Menos volume e frizz, fios alinhados por mais tempo.</p><div class="price">A partir de R$ 120</div></div>
+  </div>
+</div></section>
+
+<section class="sec" id="equipe"><div class="wrap">
+  <div class="tag fade">Equipe</div><h2 class="fade">Quem cuida do <em>seu estilo.</em></h2>
+  <div class="grid">
+    <div class="card fade"><div class="av">R</div><h3>Rafael Costa</h3><p>Barbeiro-chefe · tatuador de estilos clássicos e barbas longas.</p></div>
+    <div class="card fade"><div class="av">L</div><h3>Lucas Almeida</h3><p>Especialista em degradê e cortes modernos.</p></div>
+    <div class="card fade"><div class="av">A</div><h3>Seu Antônio</h3><p>Mestre da navalha, bigodes e barba tradicional.</p></div>
+  </div>
+</div></section>
+
+<section class="sec" id="como"><div class="wrap">
+  <div class="tag fade">Como funciona</div><h2 class="fade">Simples, <em>rápido.</em></h2>
+  <div class="grid steps">
+    <div class="card fade"><h3>Escolha</h3><p>Selecione serviço, barbeiro e horário na barra do topo.</p></div>
+    <div class="card fade"><h3>Confirme</h3><p>Envie o pedido pelo WhatsApp com um toque.</p></div>
+    <div class="card fade"><h3>Chegue e relaxe</h3><p>É só aparecer: a cadeira e o café já estão te esperando.</p></div>
+  </div>
+</div></section>
+
+<section class="sec" id="contato"><div class="wrap">
+  <div class="tag fade">Contato</div><h2 class="fade">Venha nos <em>visitar.</em></h2>
+  <div class="contact fade">
+    <ul>
+      <li><b>Endereço</b>Rua Exemplo, 123 – Centro, Sua Cidade</li>
+      <li><b>Horário</b>Seg a Sex 9h–20h · Sáb 9h–18h</li>
+      <li><b>WhatsApp</b>(00) 90000-0000</li>
+      <li><b>Instagram</b>@amelhorbarbearia</li>
+    </ul>
+    <div class="map"><a class="pill or" href="https://www.google.com/maps/search/?api=1&query=barbearia" target="_blank" rel="noopener">Abrir no Google Maps</a></div>
+  </div>
+</div></section>
+
+<section class="big"><div class="wrap fade"><h2>Seu próximo corte<br>começa <span style="color:var(--or)">agora.</span></h2><a class="pill or" href="#home">Agendar horário</a></div></section>
+</main>
+
+<footer>© 2026 BARBER.CLUB · A Melhor Barbearia. Todos os direitos reservados.</footer>
+<a class="wa" href="https://wa.me/5500900000000" target="_blank" rel="noopener" aria-label="WhatsApp">✆</a>
+
+<script>
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.fade').forEach(el=>io.observe(el));
+const K='bc_last',rec=document.getElementById('recent');
+function showLast(){try{const v=localStorage.getItem(K);if(v)rec.innerHTML='Último agendamento: '+v+' · <button type="button" id="clr">Limpar</button>';document.getElementById('clr')&&(document.getElementById('clr').onclick=()=>{try{localStorage.removeItem(K)}catch(e){}rec.textContent='Último agendamento: nenhum ainda'})}catch(e){}}
+showLast();
+document.getElementById('bar').addEventListener('submit',e=>{
+  e.preventDefault();
+  const f=e.target,m=document.getElementById('msg');let ok=true;
+  f.querySelectorAll('[required]').forEach(i=>{const bad=!i.value.trim();i.classList.toggle('err',bad);if(bad)ok=false});
+  if(!ok){m.style.color='#ff7a7a';m.textContent='Preencha nome, serviço, barbeiro e horário.';return}
+  const d=Object.fromEntries(new FormData(f)),h=d.hora.replace('T',' às ');
+  const t=encodeURIComponent(`Olá! Sou ${d.nome}. Quero agendar ${d.servico} com ${d.barbeiro} em ${h}.`);
+  m.style.color='#9ff0a8';
+  m.innerHTML=`Pedido pronto! <a href="https://wa.me/5500900000000?text=${t}" target="_blank" rel="noopener" style="text-decoration:underline;font-weight:600">Confirmar pelo WhatsApp</a>`;
+  try{localStorage.setItem(K,d.servico+' · '+h)}catch(e){}
+  showLast();f.reset();
+});
+</script>
+</body>
+</html>
